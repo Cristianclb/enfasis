@@ -2,7 +2,7 @@
 FROM python:3.10-slim
 
 # Metadata GHCR
-LABEL org.opencontainers.image.source="https://github.com/linea-enfasis/project-api-python"
+LABEL  org.opencontainers.image.source="https://github.com/cristianclb/enfasis.git"
 
 # Environment variables
 ENV PYTHONDONTWRITEBYTECODE=1 \
@@ -46,4 +46,6 @@ EXPOSE 8000
 HEALTHCHECK CMD curl --fail http://localhost:${PORT:-8000}/health || exit 1
 
 # Start app
-CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
+CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port
+${PORT:-8000}"]
+
